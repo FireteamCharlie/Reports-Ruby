@@ -19,9 +19,9 @@
 </section>
 
 <% @report.each do |report| %>  
-  <p>report.localbackup</p>
-  <p>report.sharepointcreated</p>
-  <p>report.sharepointused</p>
-  <p>report.emailbackup</p>
-  <p>report.migrationtimeline</p>
+  <p><%= report.localbackup%></p>
+  <p><%= report.sharepointcreated%></p>
+  <p><%= report.sharepointused%></p>
+  <p><%= report.emailbackup%></p>
+  <p><%= report.migrationtimeline%></p>
 <% end %>  
