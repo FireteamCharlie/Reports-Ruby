@@ -19,7 +19,7 @@ end
 DataMapper.finalize.auto_upgrade!
 
 get '/' do
-	@report = Report.all :order => :id.desc
+	@reports = Report.all :order => :id.desc
 	@title = 'All Reports'
 	erb :home
 end 
@@ -35,7 +35,7 @@ post '/' do
 	r.reportyear = params[:reportyear]
 	r.created_at = Time.now
 	r.updated_at = Time.now
-	r.save
+        save r
 	redirect '/'
 end
 
@@ -44,3 +44,10 @@ get '/:id' do
   @title = "Edit report #{params[:id]}"  
   erb :edit  
 end  
+
+def save s
+  unless s.save
+    s.errors.each { |e| puts e }
+    raise 'Error saving item'
+  end
+end
