@@ -18,15 +18,10 @@
 	</form>
 </section>
 
-<% @reports.each do |report| %>  
-  <article>  
-    <p>  
-      <%= report.localbackup %>  
-     <span><a href="/<%= report.id %>">[edit]</a></span>  
-    </p>  
-    <p class="links">  
-      <a href="/<%= report.id %>/complete">&#8623;</a>  
-    </p>  
-    <p class="meta">Created: <%= report.created_at %></p>  
-  </article>  
+<% @report.each do |report| %>  
+  <p>report.localbackup</p>
+  <p>report.sharepointcreated</p>
+  <p>report.sharepointused</p>
+  <p>report.emailbackup</p>
+  <p>report.migrationtimeline</p>
 <% end %>  

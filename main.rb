@@ -6,10 +6,10 @@ DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/reports.db")
 class Report
 	include DataMapper::Resource
 	property :id, Serial
-	property :localbackup, Boolean, :required => true, :default => false
-	property :sharepointcreated, Boolean, :required => true, :default => false
-	property :sharepointused, Boolean, :required => true, :default => false
-	property :emailbackup, Boolean, :required => true, :default => false
+	property :localbackup, Boolean#, :required => true, :default => false
+	property :sharepointcreated, Boolean#, :required => true, :default => false
+	property :sharepointused, Boolean#, :required => true, :default => false
+	property :emailbackup, Boolean#, :required => true, :default => false
 	property :migrationtimeline, Text
 	property :reportmonth, Text
 	property :reportyear, Text
