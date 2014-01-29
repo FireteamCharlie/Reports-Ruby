@@ -19,7 +19,7 @@ end
 DataMapper.finalize.auto_upgrade!
 
 get '/' do
-	@reports = Report.all :order => :id.desc
+	@report = Report.all :order => :id.desc
 	@title = 'All Reports'
 	erb :home
 end 
