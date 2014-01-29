@@ -1,0 +1,32 @@
+<section id="add">
+	<form action="/" method="post">
+		<p>Report Month:</p>
+		<input type="text" name="reportmonth"><br>
+		<p>Report Year:</p>
+		<input type="text" name="reportyear"><br>
+		<p>Local Backup:</p>
+		<input type="checkbox" name="localbackup">
+		<p>SharePoint Created:</p>
+		<input type="checkbox" name="sharepointcreated">
+		<p>SharePoint Used:</p>
+		<input type="checkbox" name="sharepointused">
+		<p>Email Backup:</p>
+		<input type="checkbox" name="emailbackup">
+		<p>Migration Timeline:</p>
+		<input type="text" name="migrationtimeline"><br>
+		<input type="submit" value="Enter Report!">
+	</form>
+</section>
+
+<% @reports.each do |report| %>  
+  <article>  
+    <p>  
+      <%= report.localbackup %>  
+     <span><a href="/<%= report.id %>">[edit]</a></span>  
+    </p>  
+    <p class="links">  
+      <a href="/<%= report.id %>/complete">&#8623;</a>  
+    </p>  
+    <p class="meta">Created: <%= report.created_at %></p>  
+  </article>  
+<% end %>  

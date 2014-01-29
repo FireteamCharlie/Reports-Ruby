@@ -1,0 +1,22 @@
+<% if @report %>  
+  <form action="/" method="post">
+		<p>Report Month:</p>
+		<input type="text" name="reportmonth"><br>
+		<p>Report Year:</p>
+		<input type="text" name="reportyear"><br>
+		<p>Local Backup:</p>
+		<input type="checkbox" name="localbackup">
+		<p>SharePoint Created:</p>
+		<input type="checkbox" name="sharepointcreated">
+		<p>SharePoint Used:</p>
+		<input type="checkbox" name="sharepointused">
+		<p>Email Backup:</p>
+		<input type="checkbox" name="emailbackup">
+		<p>Migration Timeline:</p>
+		<input type="text" name="migrationtimeline"><br>
+		<input type="submit" value="Enter Report!">
+	</form>
+  <p><a href="/<%= @report.id %>/delete">Delete</a></p>  
+<% else %>  
+  <p>Report not found.</p>  
+<% end %>
