@@ -1,0 +1,10 @@
+<% if @report %>
+	<p>Are you sure you want to delete the following report: <em>"<% @report.reportmonth %> <% @report.reportyear %>'</em>?</p>
+	<form action="/<% @report.id %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Yes, Delete it!">
+		<a href="/<% @report.id %>">Cancel</a>
+	</form>
+<% else %>
+	<p>Note not found.</p>
+<% end %>

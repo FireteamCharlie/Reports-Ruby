@@ -60,3 +60,15 @@ put '/:id' do
 	n.save
 	redirect '/'
 end
+
+get '/:id/delete' do
+	@report = Report.get params[:id]
+	@title = "Confirm deletion of report #{params[:id]}"
+	erb :delete
+end
+
+delete '/:id' do
+	n = Report.get params[:id]
+	n.destroy
+	redirect '/'
+end
