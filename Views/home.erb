@@ -18,10 +18,27 @@
 	</form>
 </section>
 
-<% @report.each do |report| %>  
-  <p><%= report.localbackup%></p>
-  <p><%= report.sharepointcreated%></p>
-  <p><%= report.sharepointused%></p>
-  <p><%= report.emailbackup%></p>
-  <p><%= report.migrationtimeline%></p>
-<% end %>  
+<table>
+  <tr>
+  	<th>Project Code </th>
+  	<th>Report Month </th>
+  	<th>Report Year </th>
+  	<th>Local Backup Performed </th>
+  	<th>SharePoint Site Created </th>
+  	<th>SharePoint Site Used </th>
+  	<th>Email Backups Performed </th>
+  	<th>Email Migration Timeline </th>
+  </tr>
+<% @report.each do |report| %> 
+	<tr>
+  	  <td><%= report.reportmonth%></td> 
+  	  <td><%= report.reportyear%></td>
+  	  <td><%= report.localbackup%></td>
+  	  <td><%= report.sharepointcreated%></td>
+  	  <td><%= report.sharepointused%></td>
+  	  <td><%= report.emailbackup%></td>
+  	  <td><%= report.migrationtimeline%></td>
+  	  <td><span><a href="/<%= report.id %>">[edit]</a></span></td>
+   </tr>
+<% end %>
+</table>  

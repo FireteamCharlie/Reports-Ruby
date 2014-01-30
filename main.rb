@@ -51,3 +51,12 @@ def save s
     raise 'Error saving item'
   end
 end
+
+put '/:id' do
+	n = Report.get params[:id]
+	n.reportmonth = params[:reportmonth]
+	n.reportyear = params[:reportyear]
+	n.updated_at = Time.now
+	n.save
+	redirect '/'
+end
