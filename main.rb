@@ -6,6 +6,7 @@ DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/reports.db")
 class Report
 	include DataMapper::Resource
 	property :id, Serial
+	property :projectcode, Text
 	property :localbackup, Boolean#, :required => true, :default => false
 	property :sharepointcreated, Boolean#, :required => true, :default => false
 	property :sharepointused, Boolean#, :required => true, :default => false
@@ -26,6 +27,7 @@ end
 
 post '/' do
 	r = Report.new
+	r.projectcode = params[:projectcode]
 	r.localbackup = params[:localbackup]
 	r.sharepointcreated = params[:sharepointcreated]
 	r.sharepointused = params[:sharepointused]
@@ -53,11 +55,16 @@ def save s
 end
 
 put '/:id' do
-	n = Report.get params[:id]
-	n.reportmonth = params[:reportmonth]
-	n.reportyear = params[:reportyear]
-	n.updated_at = Time.now
-	n.save
+	r.projectcode = params[:projectcode]
+	r.localbackup = params[:localbackup]
+	r.sharepointcreated = params[:sharepointcreated]
+	r.sharepointused = params[:sharepointused]
+	r.emailbackup = params[:emailbackup]
+	r.migrationtimeline = params[:migrationtimeline]
+	r.reportmonth = params[:reportmonth]
+	r.reportyear = params[:reportyear]
+	r.updated_at = Time.now
+	r.save
 	redirect '/'
 end
 

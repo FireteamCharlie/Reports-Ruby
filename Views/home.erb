@@ -1,5 +1,7 @@
 <section id="add">
 	<form action="/" method="post">
+		<p>Project Code:</p>
+		<input type="text" name="projectcode"><br>
 		<p>Report Month:</p>
 		<input type="text" name="reportmonth"><br>
 		<p>Report Year:</p>
@@ -31,13 +33,14 @@
   </tr>
 <% @report.each do |report| %> 
 	<tr>
-  	  <td><%= report.reportmonth%></td> 
-  	  <td><%= report.reportyear%></td>
-  	  <td><%= report.localbackup%></td>
-  	  <td><%= report.sharepointcreated%></td>
-  	  <td><%= report.sharepointused%></td>
-  	  <td><%= report.emailbackup%></td>
-  	  <td><%= report.migrationtimeline%></td>
+	  <td><%= report.projectcode %></td> 
+  	  <td><%= report.reportmonth %></td> 
+  	  <td><%= report.reportyear %></td>
+  	  <td><%= report.localbackup %></td>
+  	  <td><%= report.sharepointcreated %></td>
+  	  <td><%= report.sharepointused %></td>
+  	  <td><%= report.emailbackup %></td>
+  	  <td><%= report.migrationtimeline %></td>
   	  <td><span><a href="/<%= report.id %>">[edit]</a></span></td>
    </tr>
 <% end %>

@@ -1,20 +1,25 @@
 <% if @report %>  
-  <form action="/" method="post">
+  <form action="/<%= @report.id %>" method="post" id="edit"> 
+  		<input type="hidden" name="_method" value="put">  
+  		<h1><%= @report.projectcode %> <%= @report.reportmonth %> <%= @report.reportyear %></h1>
+  		<!-- add params: values for the edited content -->
+  		<p>Project Code:</p>
+		<input type="text" name="reportmonth" value="<%= @report.projectcode %>"><br>
 		<p>Report Month:</p>
-		<input type="text" name="reportmonth"><br>
+		<input type="text" name="reportmonth" value="<%= @report.reportmonth %>"><br>
 		<p>Report Year:</p>
-		<input type="text" name="reportyear"><br>
+		<input type="text" name="reportyear" value="<%= @report.reportyear %>"><br>
 		<p>Local Backup:</p>
-		<input type="checkbox" name="localbackup">
+		<input type="checkbox" name="localbackup" value="<%= @report.localbackup %>">
 		<p>SharePoint Created:</p>
-		<input type="checkbox" name="sharepointcreated">
+		<input type="checkbox" name="sharepointcreated" value="<%= @report.sharepointcreated %>">
 		<p>SharePoint Used:</p>
-		<input type="checkbox" name="sharepointused">
+		<input type="checkbox" name="sharepointused" value="<%= @report.sharepointused %>">
 		<p>Email Backup:</p>
-		<input type="checkbox" name="emailbackup">
+		<input type="checkbox" name="emailbackup" value="<%= @report.emailbackup %>">
 		<p>Migration Timeline:</p>
-		<input type="text" name="migrationtimeline"><br>
-		<input type="submit" value="Enter Report!">
+		<input type="text" name="migrationtimeline" value="<%= @report.migrationtimeline %>"><br>
+		<input type="submit">
 	</form>
   <p><a href="/<%= @report.id %>/delete">Delete</a></p>  
 <% else %>  
